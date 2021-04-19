@@ -19,6 +19,29 @@ licenses(["notice"])
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
+    name = "simple_flow_calculator",
+    srcs = ["simple_flow_calculator.cc"],
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        "//mediapipe/framework:calculator_framework",
+        "//mediapipe/framework:calculator_options_cc_proto",
+        "//mediapipe/framework:timestamp",
+        "//mediapipe/framework/port:status",
+        "@com_google_absl//absl/time",
+        "@com_google_absl//absl/strings",
+        "//mediapipe/framework/formats:rect_cc_proto",
+        "//mediapipe/framework/port:ret_check",
+        "//mediapipe/framework/formats:image_frame",
+        "//mediapipe/framework/formats:image_frame_opencv",
+        "//mediapipe/framework/port:opencv_core",
+        "//mediapipe/framework/port:opencv_imgproc",
+    ],
+    alwayslink = 1,
+)
+
+cc_library(
     name = "alignment_points_to_rects_calculator",
     srcs = ["alignment_points_to_rects_calculator.cc"],
     visibility = ["//visibility:public"],
